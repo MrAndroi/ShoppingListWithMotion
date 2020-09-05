@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/shoppingFragment">
+
+    <fragment
+        android:id="@+id/shoppingFragment"
+        android:name="com.androiddevs.shoppinglisttestingyt.ui.ShoppingFragment"
+        android:label="ShoppingFragment" >
+        <action
+            android:id="@+id/action_shoppingFragment_to_addShoppingItemFragment"
+            app:destination="@id/addShoppingItemFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/addShoppingItemFragment"
+        android:name="com.androiddevs.shoppinglisttestingyt.ui.AddShoppingItemFragment"
+        android:label="AddShoppingItemFragment" >
+        <action
+            android:id="@+id/action_addShoppingItemFragment_to_imagePickFragment"
+            app:destination="@id/imagePickFragment"
+            app:popUpToInclusive="false" />
+        <argument
+            android:name="imageUrl"
+            app:argType="string"
+            android:defaultValue="error" />
+        <action
+            android:id="@+id/action_addShoppingItemFragment_to_shoppingFragment"
+            app:destination="@id/shoppingFragment"
+            app:popUpTo="@id/addShoppingItemFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/imagePickFragment"
+        android:name="com.androiddevs.shoppinglisttestingyt.ui.ImagePickFragment"
+        android:label="ImagePickFragment" >
+        <argument
+            android:name="imageUrl"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_imagePickFragment_to_addShoppingItemFragment"
+            app:destination="@id/addShoppingItemFragment"
+            app:popUpTo="@id/imagePickFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
